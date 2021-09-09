@@ -33,7 +33,7 @@ class LinkedList {
       this.tail = newNode;
     }
   }
-
+  //Insert at Index
   insert(index, value) {
     if (index === 0) {
       return this.prepend(value);
@@ -47,7 +47,7 @@ class LinkedList {
     leader.next = newNode;
     newNode.next = holdingPointer;
   }
-
+  //Delete By Index
   deleteByIndex(index) {
     if (index === 0) {
       this.head = this.head.next;
@@ -58,7 +58,7 @@ class LinkedList {
     const holdingPointer = leader.next;
     leader.next = holdingPointer.next;
   }
-
+  //Delete by Value
   deleteByValue(value) {
     let currentValue = null;
     let currentNode = this.head;
@@ -84,20 +84,6 @@ class LinkedList {
     console.log(elementsArray);
   }
 
-  traverseToIndex(index) {
-    let i = 0;
-    let currentNode = this.head;
-    while (i < index) {
-      if (!currentNode.next) {
-        return null;
-      }
-      currentNode = currentNode.next;
-      i++;
-    }
-
-    return currentNode;
-  }
-
   reverse() {
     if (!this.head.next) {
       return this;
@@ -112,6 +98,22 @@ class LinkedList {
     }
     this.head.next = null;
     this.head = first;
+  }
+  //Helper
+
+  //Traverse
+  traverseToIndex(index) {
+    let i = 0;
+    let currentNode = this.head;
+    while (i < index) {
+      if (!currentNode.next) {
+        return null;
+      }
+      currentNode = currentNode.next;
+      i++;
+    }
+
+    return currentNode;
   }
 }
 
